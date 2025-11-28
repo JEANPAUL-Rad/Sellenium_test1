@@ -22,9 +22,10 @@ protected HomePage homePage;
 @BeforeMethod
     public void goHome(){
     driver.get("https://toolsqa.com/");
+
 }
 @AfterClass
     public void  tearDown(){
-//    driver.quit();
+    driver.quit();
 }
 }

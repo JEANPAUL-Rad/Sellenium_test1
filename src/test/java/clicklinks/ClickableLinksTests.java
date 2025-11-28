@@ -9,6 +9,6 @@ public class ClickableLinksTests extends BaseTests {
     @Test
     public void testReadMoreLink(){
         SeleniumTrainingPage trainingPage = homePage.clickReadMore();
-        System.out.println("Page Heading: " + trainingPage.getPageHeading());
+
     }
 }

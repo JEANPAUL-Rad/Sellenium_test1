@@ -29,4 +29,8 @@ public class HomePage {
         driver.findElement(By.linkText("TUTORIALS")).click();
         return new DropdownsAndButtonsPage(driver);
     }
+    public DemoSitePage clickDemoSite(){
+        driver.findElement(By.linkText("DEMO SITE")).click();
+        return new DemoSitePage(driver);
+    }
 }
