@@ -25,4 +25,8 @@ public class HomePage {
         driver.findElement(readMoreLink).click();
         return new SeleniumTrainingPage(driver);
     }
+    public DropdownsAndButtonsPage clickTutorialsMenu(){
+        driver.findElement(By.linkText("TUTORIALS")).click();
+        return new DropdownsAndButtonsPage(driver);
+    }
 }

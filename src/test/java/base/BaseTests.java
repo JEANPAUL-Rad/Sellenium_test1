@@ -25,6 +25,6 @@ protected HomePage homePage;
 }
 @AfterClass
     public void  tearDown(){
-    driver.quit();
+//    driver.quit();
 }
 }
