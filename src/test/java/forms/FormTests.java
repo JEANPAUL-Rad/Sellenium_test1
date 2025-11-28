@@ -9,7 +9,7 @@ public class FormTests extends BaseTests {
     public void testEnrollYourselfLink(){
         FormsPage formsPage = homePage.clickEnrollYourself();
 
-        formsPage.fillFirstName("Jean paul");
+        formsPage.fillFirstName("IRADUKUNDA");
         formsPage.fillLastName("Aman");
         formsPage.fillEmail("musa@gmail.com");
         formsPage.fillMobile("0780097403");
