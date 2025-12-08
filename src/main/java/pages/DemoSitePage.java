@@ -12,7 +12,7 @@ public class DemoSitePage {
     public DemoSitePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+      // this line is for catching errors
         try {
             String current = driver.getCurrentUrl();
             if (current == null || !current.contains("demoqa.com")) {
