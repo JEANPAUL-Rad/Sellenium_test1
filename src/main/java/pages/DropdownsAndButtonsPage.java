@@ -26,17 +26,14 @@ public class DropdownsAndButtonsPage {
     }
 
     public void selectQAPractices(){
-        wait.until(ExpectedConditions.elementToBeClickable(qaPracticesOption));
-        driver.findElement(qaPracticesOption).click();
+        wait.until(ExpectedConditions.elementToBeClickable(qaPracticesOption)).click();
     }
 
     public void selectFrontEndTesting(){
-        wait.until(ExpectedConditions.elementToBeClickable(frontEndTestingOption));
-        driver.findElement(frontEndTestingOption).click();
+        wait.until(ExpectedConditions.elementToBeClickable(frontEndTestingOption)).click();
     }
 
     public void selectMobileTesting(){
-        wait.until(ExpectedConditions.elementToBeClickable(mobileTestingOption));
-        driver.findElement(mobileTestingOption).click();
+        wait.until(ExpectedConditions.elementToBeClickable(mobileTestingOption)).click();
     }
 }
