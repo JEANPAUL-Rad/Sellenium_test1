@@ -2,7 +2,9 @@ package pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
@@ -21,32 +23,61 @@ public class AlertsPage {
     public AlertsPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        removeAds();
+    }
+
+    private void removeAds(){
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript(
+                    "var ads = document.querySelectorAll('iframe[id*=\"google_ads\"], div[id*=\"google_ads\"]');" +
+                            "ads.forEach(ad => ad.remove());"
+            );
+        } catch (Exception e) {
+
+        }
+    }
+
+    private void jsClick(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+
+    private void scrollToElement(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
     }
 
     public void clickAlertAndAccept(){
-        driver.findElement(alertButton).click();
+        WebElement element = driver.findElement(alertButton);
+        scrollToElement(element);
+        jsClick(element);
         wait.until(ExpectedConditions.alertIsPresent());
-        Alert a = driver.switchTo().alert();
-        a.accept();
+        driver.switchTo().alert().accept();
     }
 
     public void clickTimerAlertAndAccept(){
-        driver.findElement(timerAlertButton).click();
+        WebElement element = driver.findElement(timerAlertButton);
+        scrollToElement(element);
+        jsClick(element);
         wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
     }
 
     public String clickConfirmAndAccept(){
-        driver.findElement(confirmButton).click();
+        WebElement element = driver.findElement(confirmButton);
+        scrollToElement(element);
+        jsClick(element);
         wait.until(ExpectedConditions.alertIsPresent());
         Alert a = driver.switchTo().alert();
-        String text = a.getText();
         a.accept();
         return driver.findElement(confirmResult).getText();
     }
 
     public String clickConfirmAndDismiss(){
-        driver.findElement(confirmButton).click();
+        WebElement element = driver.findElement(confirmButton);
+        scrollToElement(element);
+        jsClick(element);
         wait.until(ExpectedConditions.alertIsPresent());
         Alert a = driver.switchTo().alert();
         a.dismiss();
@@ -54,7 +85,9 @@ public class AlertsPage {
     }
 
     public String clickPromptAndSendText(String input){
-        driver.findElement(promptButton).click();
+        WebElement element = driver.findElement(promptButton);
+        scrollToElement(element);
+        jsClick(element);
         wait.until(ExpectedConditions.alertIsPresent());
         Alert a = driver.switchTo().alert();
         a.sendKeys(input);
