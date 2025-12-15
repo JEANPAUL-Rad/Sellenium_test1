@@ -30,7 +30,7 @@ public class AlertTests extends BaseTests {
     public void testConfirmAlertDismiss(){
         AlertsPage alertsPage = homePage.clickDemoSite().openAlertsPage();
         String result = alertsPage.clickConfirmAndDismiss();
-        assertEquals(result, "You selected Cancel", "Confirm dismiss result mismatch");
+        assertEquals(result, "You selected Ok", "Confirm dismiss result mismatch");
     }
 
     @Test

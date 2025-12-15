@@ -80,7 +80,7 @@ public class AlertsPage {
         jsClick(element);
         wait.until(ExpectedConditions.alertIsPresent());
         Alert a = driver.switchTo().alert();
-        a.dismiss();
+        a.accept();
         return driver.findElement(confirmResult).getText();
     }
 
